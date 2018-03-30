@@ -1,0 +1,57 @@
+<%= form_with(model: mutation_test, local: true) do |form| %>
+  <% if mutation_test.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mutation_test.errors.count, "error") %> prohibited this mutation_test from being saved:</h2>
+
+      <ul>
+      <% mutation_test.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :application %>
+    <%= form.text_field :application, id: :mutation_test_application %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mutant_id %>
+    <%= form.text_field :mutant_id, id: :mutation_test_mutant_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :file_name %>
+    <%= form.text_field :file_name, id: :mutation_test_file_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lineno %>
+    <%= form.number_field :lineno, id: :mutation_test_lineno %>
+  </div>
+
+  <div class="field">
+    <%= form.label :class %>
+    <%= form.text_field :class, id: :mutation_test_class %>
+  </div>
+
+  <div class="field">
+    <%= form.label :method %>
+    <%= form.text_field :method, id: :mutation_test_method %>
+  </div>
+
+  <div class="field">
+    <%= form.label :diff %>
+    <%= form.text_field :diff, id: :mutation_test_diff %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.text_field :type, id: :mutation_test_type %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

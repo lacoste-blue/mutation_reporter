@@ -1,0 +1,2 @@
+class MutationTest < ApplicationRecord
+end

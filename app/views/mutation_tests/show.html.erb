@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Application:</strong>
+  <%= @mutation_test.application %>
+</p>
+
+<p>
+  <strong>Mutant:</strong>
+  <%= @mutation_test.mutant_id %>
+</p>
+
+<p>
+  <strong>File name:</strong>
+  <%= @mutation_test.file_name %>
+</p>
+
+<p>
+  <strong>Lineno:</strong>
+  <%= @mutation_test.lineno %>
+</p>
+
+<p>
+  <strong>Class:</strong>
+  <%= @mutation_test.class %>
+</p>
+
+<p>
+  <strong>Method:</strong>
+  <%= @mutation_test.method %>
+</p>
+
+<p>
+  <strong>Diff:</strong>
+  <%= @mutation_test.diff %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @mutation_test.type %>
+</p>
+
+<%= link_to 'Edit', edit_mutation_test_path(@mutation_test) %> |
+<%= link_to 'Back', mutation_tests_path %>
