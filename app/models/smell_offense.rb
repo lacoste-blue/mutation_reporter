@@ -1,0 +1,2 @@
+class SmellOffense < ApplicationRecord
+end

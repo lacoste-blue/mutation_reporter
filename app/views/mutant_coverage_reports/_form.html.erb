@@ -1,0 +1,57 @@
+<%= form_with(model: mutant_coverage_report, local: true) do |form| %>
+  <% if mutant_coverage_report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mutant_coverage_report.errors.count, "error") %> prohibited this mutant_coverage_report from being saved:</h2>
+
+      <ul>
+      <% mutant_coverage_report.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :application %>
+    <%= form.text_field :application, id: :mutant_coverage_report_application %>
+  </div>
+
+  <div class="field">
+    <%= form.label :file_name %>
+    <%= form.text_field :file_name, id: :mutant_coverage_report_file_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :covered_percent %>
+    <%= form.text_field :covered_percent, id: :mutant_coverage_report_covered_percent %>
+  </div>
+
+  <div class="field">
+    <%= form.label :covered_strength %>
+    <%= form.text_field :covered_strength, id: :mutant_coverage_report_covered_strength %>
+  </div>
+
+  <div class="field">
+    <%= form.label :covered_lines %>
+    <%= form.number_field :covered_lines, id: :mutant_coverage_report_covered_lines %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lines_of_code %>
+    <%= form.number_field :lines_of_code, id: :mutant_coverage_report_lines_of_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :line_number %>
+    <%= form.number_field :line_number, id: :mutant_coverage_report_line_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :repitition %>
+    <%= form.number_field :repitition, id: :mutant_coverage_report_repitition %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

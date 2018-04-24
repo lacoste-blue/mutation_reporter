@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rubocop Reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Application</th>
+      <th>Branch</th>
+      <th>Build</th>
+      <th>File name</th>
+      <th>Line number</th>
+      <th>Severity</th>
+      <th>Message</th>
+      <th>Corrected</th>
+      <th>Cop name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rubocop_reports.each do |rubocop_report| %>
+      <tr>
+        <td><%= rubocop_report.application %></td>
+        <td><%= rubocop_report.branch%></td>
+        <td><%= rubocop_report.build%></td>
+        <td><%= rubocop_report.file_name.html_safe %></td>
+        <td><%= rubocop_report.line_number %></td>
+        <td><%= rubocop_report.severity %></td>
+        <td><%= rubocop_report.message %></td>
+        <td><%= rubocop_report.corrected %></td>
+        <td><%= rubocop_report.cop_name %></td>
+        <td><%= link_to 'Show', rubocop_report %></td>
+        <td><%= link_to 'Edit', edit_rubocop_report_path(rubocop_report) %></td>
+        <td><%= link_to 'Destroy', rubocop_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rubocop Report', new_rubocop_report_path %>

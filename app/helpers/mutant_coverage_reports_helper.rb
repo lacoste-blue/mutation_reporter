@@ -1,0 +1,2 @@
+module MutantCoverageReportsHelper
+end

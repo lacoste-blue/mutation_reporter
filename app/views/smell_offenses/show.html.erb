@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Application:</strong>
+  <%= @smell_offense.application %>
+</p>
+
+<p>
+  <strong>Branch:</strong>
+  <%= @smell_offense.branch %>
+</p>
+
+<p>
+  <strong>Build:</strong>
+  <%= @smell_offense.build %>
+</p>
+
+<p>
+  <strong>File name:</strong>
+  <%= @smell_offense.file_name %>
+</p>
+
+<p>
+  <strong>Line number:</strong>
+  <%= @smell_offense.line_number %>
+</p>
+
+<p>
+  <strong>Smell:</strong>
+  <%= @smell_offense.smell %>
+</p>
+
+<p>
+  <strong>Offense:</strong>
+  <%= @smell_offense.offense %>
+</p>
+
+<%= link_to 'Edit', edit_smell_offense_path(@smell_offense) %> |
+<%= link_to 'Back', smell_offenses_path %>

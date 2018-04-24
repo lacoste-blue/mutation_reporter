@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Application:</strong>
+  <%= @mutant_coverage_report.application %>
+</p>
+
+<p>
+  <strong>File name:</strong>
+  <%= @mutant_coverage_report.file_name %>
+</p>
+
+<p>
+  <strong>Covered percent:</strong>
+  <%= @mutant_coverage_report.covered_percent %>
+</p>
+
+<p>
+  <strong>Covered strength:</strong>
+  <%= @mutant_coverage_report.covered_strength %>
+</p>
+
+<p>
+  <strong>Covered lines:</strong>
+  <%= @mutant_coverage_report.covered_lines %>
+</p>
+
+<p>
+  <strong>Lines of code:</strong>
+  <%= @mutant_coverage_report.lines_of_code %>
+</p>
+
+<p>
+  <strong>Line number:</strong>
+  <%= @mutant_coverage_report.line_number %>
+</p>
+
+<p>
+  <strong>Repitition:</strong>
+  <%= @mutant_coverage_report.repitition %>
+</p>
+
+<%= link_to 'Edit', edit_mutant_coverage_report_path(@mutant_coverage_report) %> |
+<%= link_to 'Back', mutant_coverage_reports_path %>

@@ -1,0 +1,2 @@
+class MutantCoverageReport < ApplicationRecord
+end

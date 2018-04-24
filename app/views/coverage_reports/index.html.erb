@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Coverage Reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Application</th>
+      <th>Branch</th>
+      <th>Build</th>
+      <th>File name</th>
+      <th>Covered percent</th>
+      <th>Covered strength</th>
+      <th>Covered lines</th>
+      <th>Lines of code</th>
+      <th>Line number</th>
+      <th>Repitition</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @coverage_reports.each do |coverage_report| %>
+      <tr>
+        <td><%= coverage_report.application %></td>
+        <td><%= coverage_report.branch %></td>
+        <td><%= coverage_report.build %></td>
+        <td><%= coverage_report.file_name %></td>
+        <td><%= coverage_report.covered_percent %></td>
+        <td><%= coverage_report.covered_strength %></td>
+        <td><%= coverage_report.covered_lines %></td>
+        <td><%= coverage_report.lines_of_code %></td>
+        <td><%= coverage_report.line_number %></td>
+        <td><%= coverage_report.repitition %></td>
+        <td><%= link_to 'Show', coverage_report %></td>
+        <td><%= link_to 'Edit', edit_coverage_report_path(coverage_report) %></td>
+        <td><%= link_to 'Destroy', coverage_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Coverage Report', new_coverage_report_path %>

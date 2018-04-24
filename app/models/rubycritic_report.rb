@@ -1,0 +1,2 @@
+class RubycriticReport < ApplicationRecord
+end

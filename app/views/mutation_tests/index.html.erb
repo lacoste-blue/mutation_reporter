@@ -6,6 +6,8 @@
   <thead>
     <tr>
       <th>Application</th>
+      <th>Branch</th>
+      <th>Build</th>
       <th>Mutant</th>
       <th>File name</th>
       <th>Lineno</th>
@@ -21,13 +23,15 @@
     <% @mutation_tests.each do |mutation_test| %>
       <tr>
         <td><%= mutation_test.application %></td>
+        <td><%= mutation_test.branch%></td>
+        <td><%= mutation_test.build%></td>
         <td><%= mutation_test.mutant_id %></td>
         <td><%= mutation_test.file_name %></td>
-        <td><%= mutation_test.lineno %></td>
-        <td><%= mutation_test.class %></td>
-        <td><%= mutation_test.method %></td>
+        <td><%= mutation_test.line_number %></td>
+        <td><%= mutation_test.class_name %></td>
+        <td><%= mutation_test.method_name %></td>
         <td><%= mutation_test.diff %></td>
-        <td><%= mutation_test.type %></td>
+        <td><%= mutation_test.mutation_type %></td>
         <td><%= link_to 'Show', mutation_test %></td>
         <td><%= link_to 'Edit', edit_mutation_test_path(mutation_test) %></td>
         <td><%= link_to 'Destroy', mutation_test, method: :delete, data: { confirm: 'Are you sure?' } %></td>

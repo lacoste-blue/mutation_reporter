@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  application: MyString
+  string: MyString
+  file_name: MyString
+  line_number: 1
+  severity: MyString
+  message: MyText
+  corrected: MyString
+  cop_name: MyString
+
+two:
+  application: MyString
+  string: MyString
+  file_name: MyString
+  line_number: 1
+  severity: MyString
+  message: MyText
+  corrected: MyString
+  cop_name: MyString

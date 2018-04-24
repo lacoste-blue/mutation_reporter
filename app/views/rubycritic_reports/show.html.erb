@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Application:</strong>
+  <%= @rubycritic_report.application %>
+</p>
+
+<p>
+  <strong>Module name:</strong>
+  <%= @rubycritic_report.module_name %>
+</p>
+
+<p>
+  <strong>File name:</strong>
+  <%= @rubycritic_report.file_name %>
+</p>
+
+<p>
+  <strong>Line number:</strong>
+  <%= @rubycritic_report.line_number %>
+</p>
+
+<p>
+  <strong>Churn:</strong>
+  <%= @rubycritic_report.churn %>
+</p>
+
+<p>
+  <strong>Committed at:</strong>
+  <%= @rubycritic_report.committed_at %>
+</p>
+
+<p>
+  <strong>Complexity:</strong>
+  <%= @rubycritic_report.complexity %>
+</p>
+
+<p>
+  <strong>Duplication:</strong>
+  <%= @rubycritic_report.duplication %>
+</p>
+
+<p>
+  <strong>Methods count:</strong>
+  <%= @rubycritic_report.methods_count %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @rubycritic_report.cost %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @rubycritic_report.rating %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @rubycritic_report.type %>
+</p>
+
+<%= link_to 'Edit', edit_rubycritic_report_path(@rubycritic_report) %> |
+<%= link_to 'Back', rubycritic_reports_path %>

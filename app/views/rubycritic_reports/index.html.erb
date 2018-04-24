@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rubycritic Reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Application</th>
+      <th>Branch</th>
+      <th>Build</th>
+      <th>Module name</th>
+      <th>File name</th>
+      <th>Line number</th>
+      <th>Churn</th>
+      <th>Committed at</th>
+      <th>Complexity</th>
+      <th>Duplication</th>
+      <th>Methods count</th>
+      <th>Cost</th>
+      <th>Rating</th>
+      <th>Smell Type</th>
+      <th>Status</th>
+      <th>Score</th>
+      <th>Message</th>
+      <th>Smell Cost</th>
+      <th>Context</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rubycritic_reports.each do |rubycritic_report| %>
+      <tr>
+        <td><%= rubycritic_report.application %></td>
+        <td><%= rubycritic_report.branch%></td>
+        <td><%= rubycritic_report.build%></td>
+        <td><%= rubycritic_report.module_name %></td>
+        <td><%= rubycritic_report.file_name %></td>
+        <td><%= rubycritic_report.line_number %></td>
+        <td><%= rubycritic_report.churn %></td>
+        <td><%= rubycritic_report.committed_at %></td>
+        <td><%= rubycritic_report.complexity %></td>
+        <td><%= rubycritic_report.duplication %></td>
+        <td><%= rubycritic_report.methods_count %></td>
+        <td><%= rubycritic_report.cost %></td>
+        <td><%= rubycritic_report.rating %></td>
+        <td><%= rubycritic_report.smell_type %></td>
+        <td><%= rubycritic_report.status %></td>
+        <td><%= rubycritic_report.score %></td>
+        <td><%= rubycritic_report.message %></td>
+        <td><%= rubycritic_report.smell_cost %></td>
+        <td><%= rubycritic_report.context %></td>
+
+        <td><%= link_to 'Show', rubycritic_report %></td>
+        <td><%= link_to 'Edit', edit_rubycritic_report_path(rubycritic_report) %></td>
+        <td><%= link_to 'Destroy', rubycritic_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rubycritic Report', new_rubycritic_report_path %>

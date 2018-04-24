@@ -1,0 +1,2 @@
+module SmellOffensesHelper
+end

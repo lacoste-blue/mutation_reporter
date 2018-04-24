@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Application:</strong>
+  <%= @coverage_report.application %>
+</p>
+
+<p>
+  <strong>File name:</strong>
+  <%= @coverage_report.file_name %>
+</p>
+
+<p>
+  <strong>Covered percent:</strong>
+  <%= @coverage_report.covered_percent %>
+</p>
+
+<p>
+  <strong>Covered strength:</strong>
+  <%= @coverage_report.covered_strength %>
+</p>
+
+<p>
+  <strong>Covered lines:</strong>
+  <%= @coverage_report.covered_lines %>
+</p>
+
+<p>
+  <strong>Lines of code:</strong>
+  <%= @coverage_report.lines_of_code %>
+</p>
+
+<p>
+  <strong>Line number:</strong>
+  <%= @coverage_report.line_number %>
+</p>
+
+<p>
+  <strong>Repitition:</strong>
+  <%= @coverage_report.repitition %>
+</p>
+
+<%= link_to 'Edit', edit_coverage_report_path(@coverage_report) %> |
+<%= link_to 'Back', coverage_reports_path %>

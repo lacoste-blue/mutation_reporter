@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  application: MyString
+  module_name: MyString
+  file_name: MyString
+  line_number: 1
+  churn: 1
+  committed_at: 2018-04-19
+  complexity: 1
+  duplication: 1
+  methods_count: 1
+  cost: 1
+  rating: MyString
+  type: 
+
+two:
+  application: MyString
+  module_name: MyString
+  file_name: MyString
+  line_number: 1
+  churn: 1
+  committed_at: 2018-04-19
+  complexity: 1
+  duplication: 1
+  methods_count: 1
+  cost: 1
+  rating: MyString
+  type: 

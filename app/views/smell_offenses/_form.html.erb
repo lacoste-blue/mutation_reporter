@@ -1,0 +1,52 @@
+<%= form_with(model: smell_offense, local: true) do |form| %>
+  <% if smell_offense.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(smell_offense.errors.count, "error") %> prohibited this smell_offense from being saved:</h2>
+
+      <ul>
+      <% smell_offense.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :application %>
+    <%= form.text_field :application, id: :smell_offense_application %>
+  </div>
+
+  <div class="field">
+    <%= form.label :branch %>
+    <%= form.text_field :branch, id: :smell_offense_branch %>
+  </div>
+
+  <div class="field">
+    <%= form.label :build %>
+    <%= form.number_field :build, id: :smell_offense_build %>
+  </div>
+
+  <div class="field">
+    <%= form.label :file_name %>
+    <%= form.text_field :file_name, id: :smell_offense_file_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :line_number %>
+    <%= form.number_field :line_number, id: :smell_offense_line_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :smell %>
+    <%= form.text_field :smell, id: :smell_offense_smell %>
+  </div>
+
+  <div class="field">
+    <%= form.label :offense %>
+    <%= form.text_field :offense, id: :smell_offense_offense %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

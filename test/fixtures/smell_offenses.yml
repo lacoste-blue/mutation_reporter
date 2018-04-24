@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  application: MyString
+  branch: MyString
+  build: 1
+  file_name: MyString
+  line_number: 1
+  smell: MyString
+  offense: MyString
+
+two:
+  application: MyString
+  branch: MyString
+  build: 1
+  file_name: MyString
+  line_number: 1
+  smell: MyString
+  offense: MyString

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Application:</strong>
+  <%= @rubocop_report.application %>
+</p>
+
+<p>
+  <strong>String:</strong>
+  <%= @rubocop_report.string %>
+</p>
+
+<p>
+  <strong>File name:</strong>
+  <%= @rubocop_report.file_name %>
+</p>
+
+<p>
+  <strong>Line number:</strong>
+  <%= @rubocop_report.line_number %>
+</p>
+
+<p>
+  <strong>Severity:</strong>
+  <%= @rubocop_report.severity %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @rubocop_report.message %>
+</p>
+
+<p>
+  <strong>Corrected:</strong>
+  <%= @rubocop_report.corrected %>
+</p>
+
+<p>
+  <strong>Cop name:</strong>
+  <%= @rubocop_report.cop_name %>
+</p>
+
+<%= link_to 'Edit', edit_rubocop_report_path(@rubocop_report) %> |
+<%= link_to 'Back', rubocop_reports_path %>

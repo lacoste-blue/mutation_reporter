@@ -1,0 +1,77 @@
+<%= form_with(model: rubycritic_report, local: true) do |form| %>
+  <% if rubycritic_report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(rubycritic_report.errors.count, "error") %> prohibited this rubycritic_report from being saved:</h2>
+
+      <ul>
+      <% rubycritic_report.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :application %>
+    <%= form.text_field :application, id: :rubycritic_report_application %>
+  </div>
+
+  <div class="field">
+    <%= form.label :module_name %>
+    <%= form.text_field :module_name, id: :rubycritic_report_module_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :file_name %>
+    <%= form.text_field :file_name, id: :rubycritic_report_file_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :line_number %>
+    <%= form.number_field :line_number, id: :rubycritic_report_line_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :churn %>
+    <%= form.number_field :churn, id: :rubycritic_report_churn %>
+  </div>
+
+  <div class="field">
+    <%= form.label :committed_at %>
+    <%= form.date_select :committed_at, id: :rubycritic_report_committed_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :complexity %>
+    <%= form.number_field :complexity, id: :rubycritic_report_complexity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :duplication %>
+    <%= form.number_field :duplication, id: :rubycritic_report_duplication %>
+  </div>
+
+  <div class="field">
+    <%= form.label :methods_count %>
+    <%= form.number_field :methods_count, id: :rubycritic_report_methods_count %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cost %>
+    <%= form.number_field :cost, id: :rubycritic_report_cost %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rating %>
+    <%= form.text_field :rating, id: :rubycritic_report_rating %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.text_field :type, id: :rubycritic_report_type %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
