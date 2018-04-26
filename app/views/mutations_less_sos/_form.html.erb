@@ -1,0 +1,47 @@
+<%= form_with(model: mutations_less_so, local: true) do |form| %>
+  <% if mutations_less_so.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mutations_less_so.errors.count, "error") %> prohibited this mutations_less_so from being saved:</h2>
+
+      <ul>
+      <% mutations_less_so.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :application %>
+    <%= form.text_field :application, id: :mutations_less_so_application %>
+  </div>
+
+  <div class="field">
+    <%= form.label :branch %>
+    <%= form.text_field :branch, id: :mutations_less_so_branch %>
+  </div>
+
+  <div class="field">
+    <%= form.label :build %>
+    <%= form.number_field :build, id: :mutations_less_so_build %>
+  </div>
+
+  <div class="field">
+    <%= form.label :file_name %>
+    <%= form.text_field :file_name, id: :mutations_less_so_file_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :line_number %>
+    <%= form.number_field :line_number, id: :mutations_less_so_line_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :diff %>
+    <%= form.text_field :diff, id: :mutations_less_so_diff %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

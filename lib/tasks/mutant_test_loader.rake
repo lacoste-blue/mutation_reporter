@@ -13,7 +13,8 @@ namespace :mutant_test do
       MutationTest.create(
         {
           # hash with column names and values
-          application: header[2].split('/')[4].split('-')[0], 
+          #application: header[2].split('/')[4].split('-')[0], 
+          application: args[:file_name].to_s.split('-')[0],
           mutant_id: header[4],
           file_name: header[2].split('/')[5..-1].join('/'),
           line_number: header[3],

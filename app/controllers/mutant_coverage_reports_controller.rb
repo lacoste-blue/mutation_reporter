@@ -4,7 +4,7 @@ class MutantCoverageReportsController < ApplicationController
   # GET /mutant_coverage_reports
   # GET /mutant_coverage_reports.json
   def index
-    @mutant_coverage_reports = MutantCoverageReport.all
+    @mutant_coverage_reports = MutantCoverageReport.all.paginate(:page => params[:page])
   end
 
   # GET /mutant_coverage_reports/1

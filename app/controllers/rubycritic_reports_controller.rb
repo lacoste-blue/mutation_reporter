@@ -4,7 +4,7 @@ class RubycriticReportsController < ApplicationController
   # GET /rubycritic_reports
   # GET /rubycritic_reports.json
   def index
-    @rubycritic_reports = RubycriticReport.all
+    @rubycritic_reports = RubycriticReport.all.paginate(:page => params[:page])
   end
 
   # GET /rubycritic_reports/1

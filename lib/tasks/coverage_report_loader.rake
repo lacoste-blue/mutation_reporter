@@ -13,7 +13,8 @@ namespace :coverage_reports do
         CoverageReport.create(
           {
             # hash with column names and values
-            application: report_on_file['filename'].split('/')[4].split('-')[0], 
+            #application: report_on_file['filename'].split('/')[4].split('-')[0], 
+            application: args[:file_name].to_s.split('-')[0],
             file_name: report_on_file['filename'].split('/')[5..-1].join('/'), 
             covered_percent: report_on_file['covered_percent'] ,
             covered_strength: report_on_file['covered_strength'] ,

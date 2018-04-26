@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :mutations_less_sos
   resources :smell_offenses
   resources :mutant_coverage_reports
   resources :coverage_reports

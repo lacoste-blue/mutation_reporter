@@ -3,7 +3,6 @@ namespace :rubycritic_reports do
 
   task :load, [:file_name] => :environment do |t, args|
     report_output = File.read('tmp/data/' + args[:file_name].to_s)
-    application_name = 'uno_classifieds'
     report_json = JSON.parse( report_output )
     reports_by_file = report_json['analysed_modules']
 
@@ -12,10 +11,11 @@ namespace :rubycritic_reports do
       smells.each do |smell|
         locations = smell['locations']
         locations.each do |location|
+          puts location
           RubycriticReport.create(
             {
               # hash with column names and values
-              application: application_name, 
+              application: args[:file_name].to_s.split('-')[0], 
               module_name: report_on_file['name'],
               file_name: report_on_file['path'] , 
               line_number: location['line'],

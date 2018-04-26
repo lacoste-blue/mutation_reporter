@@ -4,7 +4,7 @@ class RubocopReportsController < ApplicationController
   # GET /rubocop_reports
   # GET /rubocop_reports.json
   def index
-    @rubocop_reports = RubocopReport.all
+    @rubocop_reports = RubocopReport.all.paginate(:page => params[:page])
   end
 
   # GET /rubocop_reports/1
