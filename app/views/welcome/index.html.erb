@@ -1,10 +1,18 @@
-<% SmellOffense.pluck(:application).uniq.sort.each do |application| %>
-  <%= application %>
-  <%= pie_chart(
-        {
-          smell_offenses: SmellOffense.where(application: application).count,
-          lint_offenses: RubocopReport.where(application: application).count,
-          live_mutants: MutationTest.where(application: application).count
-        }
-      ) %>
-<% end %>
+<div class="container" style="padding-top: 20px;">
+  <h2>Break down of badness</h2>
+  <hr></hr>
+  <div class="row">
+    <% SmellOffense.pluck(:application).uniq.sort.each do |application| %>
+      <div class="col-4">
+        <%= application %>
+        <%= pie_chart(
+              {
+                smell_offenses: SmellOffense.where(application: application).count,
+                lint_offenses: RubocopReport.where(application: application).count,
+                live_mutants: MutationTest.where(application: application).count
+              }
+            ) %>
+      </div>
+    <% end %>
+  </div>
+</div>
