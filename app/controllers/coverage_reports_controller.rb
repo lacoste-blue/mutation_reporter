@@ -4,7 +4,7 @@ class CoverageReportsController < ApplicationController
   # GET /coverage_reports
   # GET /coverage_reports.json
   def index
-    @coverage_reports = CoverageReport.all
+    @coverage_reports = CoverageReport.all.paginate(:page => params[:page])
   end
 
   # GET /coverage_reports/1

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180423041801) do
+ActiveRecord::Schema.define(version: 20180425003801) do
 
   create_table "coverage_reports", force: :cascade do |t|
     t.string "application"
@@ -55,6 +55,16 @@ ActiveRecord::Schema.define(version: 20180423041801) do
     t.datetime "updated_at", null: false
     t.string "branch"
     t.integer "build"
+  end
+
+  create_table "mutations_less_sos", force: :cascade do |t|
+    t.string "application"
+    t.string "branch"
+    t.integer "build"
+    t.string "file_name"
+    t.integer "line_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "rubocop_reports", force: :cascade do |t|

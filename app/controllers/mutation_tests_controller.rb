@@ -4,7 +4,7 @@ class MutationTestsController < ApplicationController
   # GET /mutation_tests
   # GET /mutation_tests.json
   def index
-    @mutation_tests = MutationTest.all
+    @mutation_tests = MutationTest.all.paginate(:page => params[:page])
   end
 
   # GET /mutation_tests/1
