@@ -1,0 +1,10 @@
+<% SmellOffense.pluck(:application).uniq.sort.each do |application| %>
+  <%= application %>
+  <%= pie_chart(
+        {
+          smell_offenses: SmellOffense.where(application: application).count,
+          lint_offenses: RubocopReport.where(application: application).count,
+          live_mutants: MutationTest.where(application: application).count
+        }
+      ) %>
+<% end %>
