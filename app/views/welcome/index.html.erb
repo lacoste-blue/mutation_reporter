@@ -13,7 +13,8 @@
               smell_offenses: RubycriticReport.where(application: application).count,
               lint_offenses: RubocopReport.where(application: application).count,
               live_mutants: MutationTest.where(application: application).count
-            }
+            },
+            download: true
           ) %>
       </div>
     <% end %>
@@ -102,7 +103,8 @@
                 # live_mutants: MutationTest.where(application: application).count
               }
             ],
-            stacked: true
+            stacked: true,
+            download: true
           ) %>
       </div>
     <% end %>
