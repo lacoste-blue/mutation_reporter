@@ -1,17 +1,109 @@
 <div class="container" style="padding-top: 20px;">
+  <% branches = ['one_third', 'two_third', 'master']%>
+  <% applications = ['catarse', 'sanataro', 'uno_classifieds']%>
+
   <h2>Break down of badness</h2>
   <hr></hr>
   <div class="row">
-    <% SmellOffense.pluck(:application).uniq.sort.each do |application| %>
-      <div class="col-4">
-        <%= application %>
-        <%= pie_chart(
+  <% applications.each do |application| %>
+    <div class="col-4">
+      <%= application %>
+      <%= pie_chart(
+            {
+              smell_offenses: RubycriticReport.where(application: application).count,
+              lint_offenses: RubocopReport.where(application: application).count,
+              live_mutants: MutationTest.where(application: application).count
+            }
+          ) %>
+      </div>
+    <% end %>
+  </div>
+
+  </br>
+  <h2>Mutants by project</h2>
+  <table class='table'>
+    <tr>
+      <th>Application</th>
+      <th>Total Mutants</th>
+      <th>Killed</th>
+      <th>Alive</th>
+    </tr>
+    <% applications.each do |application| %>
+    <% results = MutationTest.where(application: application).group(:mutation_type).count %>
+    <tr>
+      <td><%= application %></td>
+      <td><%= (results['evil'] || 0) + (results['neutral'] || 0) %></td>
+      <td><%= results['neutral'] || 0 %></td>
+      <td><%= results['evil'] || 0 %></td>
+    </tr>
+    <% end %>
+  </table>
+
+  </br>
+  <h2>Report Breakdown</h2>
+  <table class='table'>
+    <tr>
+      <th>Application</th>
+      <th>Total Smells</th>
+      <th>Total Offenses</th>
+      <th>Total Mutants</th>
+    </tr>
+    <% applications.each do |application| %>
+    <tr>
+      <td><%= application %></td>
+      <td><%= RubycriticReport.where(application: application).count %></td>
+      <td><%= RubocopReport.where(application: application).count %></td>
+      <td><%= MutationTest.where(application: application).count %></td>
+    </tr>
+    <% end %>
+  </table>
+
+  </br>
+  <h2>Table 3</h2>
+  <table class='table'>
+    <tr>
+      <th>Application</th>
+      <th>Intersection of all serious offenses</th>
+      <th>Intersection of mutants and offenses</th>
+      <th>Intersection of mutants and smells</th>
+    </tr>
+    <% applications.each do |application| %>
+    <tr>
+      <td><%= application %></td>
+      <td><%= MutationTest.joins('join rubocop_reports on rubocop_reports.application = mutation_tests.application and rubocop_reports.file_name = mutation_tests.file_name and rubocop_reports.branch = mutation_tests.branch JOIN rubycritic_reports on rubycritic_reports.application = mutation_tests.application and rubycritic_reports.file_name = mutation_tests.file_name and rubycritic_reports.branch = mutation_tests.branch').where("mutation_tests.mutation_type = 'evil' and mutation_tests.application = '#{application}' and rubocop_reports.severity != 'convention' and (rubycritic_reports.rating != 'A' or rubycritic_reports.rating != 'B')").count %></td>
+      <td><%= MutationTest.joins('join rubocop_reports on rubocop_reports.application = mutation_tests.application and rubocop_reports.file_name = mutation_tests.file_name and rubocop_reports.branch = mutation_tests.branch').where("mutation_tests.mutation_type = 'evil' and mutation_tests.application = '#{application}' and rubocop_reports.severity != 'convention'").count %></td>
+      <td><%= MutationTest.joins('JOIN rubycritic_reports on rubycritic_reports.application = mutation_tests.application and rubycritic_reports.file_name = mutation_tests.file_name and rubycritic_reports.branch = mutation_tests.branch').where("mutation_tests.mutation_type = 'evil' and mutation_tests.application = '#{application}' and (rubycritic_reports.rating != 'A' or rubycritic_reports.rating != 'B')").count %></td>
+    </tr>
+    <% end %>
+  </table>
+
+  </br>
+  <h2>Break down of badness</h2>
+  <hr></hr>
+  <div class="row">
+  <% applications.each do |application| %>
+    <div class="col-4">
+      <%= application %>
+      <%= bar_chart(
+            [
               {
-                smell_offenses: SmellOffense.where(application: application).count,
-                lint_offenses: RubocopReport.where(application: application).count,
-                live_mutants: MutationTest.where(application: application).count
+                name: 'Smell Offenses',
+                data: branches.map { |b| [b, RubycriticReport.where(application: application, branch: b).where.not(rating: ['A','B']).count] }
+                # smell_offenses: SmellOffense.where(application: application).count
+              },
+              {
+                name: 'Lint Offenses',
+                data: branches.map { |b| [b, RubocopReport.where(application: application, branch: b).where.not(severity: 'convention').count] }
+                # lint_offenses: RubocopReport.where(application: application).count
+              },
+              {
+                name: 'Mutants',
+                data: branches.map { |b| [b, MutationTest.where(application: application, branch: b).count] }
+                # live_mutants: MutationTest.where(application: application).count
               }
-            ) %>
+            ],
+            stacked: true
+          ) %>
       </div>
     <% end %>
   </div>
