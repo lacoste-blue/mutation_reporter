@@ -85,21 +85,31 @@
   <% applications.each do |application| %>
     <div class="col-4">
       <%= application %>
+      <% so = branches.map { |b| [b, RubycriticReport.where(application: application, branch: b).where.not(rating: ['A','B']).count] } %>
+      <% lo = branches.map { |b| [b, RubocopReport.where(application: application, branch: b).where.not(severity: 'convention').count] } %>
+      <% mo = branches.map { |b| [b, MutationTest.where(application: application, branch: b).count] } %>
+      <% so[1][1] = so[0][1] if so[1][1] == 0  %>
+      <% lo[1][1] = lo[0][1] if lo[1][1] == 0  %>
+      <% mo[1][1] = mo[0][1] if mo[1][1] == 0  %>
+
+      <% so[0][1] = so[1][1] if so[0][1] == 0  %>
+      <% lo[0][1] = lo[1][1] if lo[0][1] == 0  %>
+      <% mo[0][1] = mo[1][1] if mo[0][1] == 0  %>
       <%= bar_chart(
             [
               {
                 name: 'Smell Offenses',
-                data: branches.map { |b| [b, RubycriticReport.where(application: application, branch: b).where.not(rating: ['A','B']).count] }
+                data: so
                 # smell_offenses: SmellOffense.where(application: application).count
               },
               {
                 name: 'Lint Offenses',
-                data: branches.map { |b| [b, RubocopReport.where(application: application, branch: b).where.not(severity: 'convention').count] }
+                data: lo
                 # lint_offenses: RubocopReport.where(application: application).count
               },
               {
                 name: 'Mutants',
-                data: branches.map { |b| [b, MutationTest.where(application: application, branch: b).count] }
+                data: mo
                 # live_mutants: MutationTest.where(application: application).count
               }
             ],
